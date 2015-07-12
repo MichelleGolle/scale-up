@@ -5,7 +5,7 @@ class Seed
     p "Seeding started"
     p "=============================="
     generate_categories
-    generate_images
+    # generate_images
     generate_venues
     generate_events
     generate_users
@@ -25,28 +25,28 @@ class Seed
     ])
   end
 
-  def generate_images
-    @images = Image.create([
-      { title: "Blazers vs. Nuggets",
-        description: "Lillard vs Nuggets",
-        img: File.new("#{Rails.root}/app/assets/images/blazers-nuggets.jpg") },
-      { title: "Hannibal Burress",
-        description: "Hannibal Burress Headshot",
-        img: File.new("#{Rails.root}/app/assets/images/hannibal-buress.jpg") },
-      { title: "Pitbull and Enrique Iglesias",
-        description: "Pitbull and Enrique Being Bosses",
-        img: File.new("#{Rails.root}/app/assets/images/pitbull-enrique.jpg") },
-      { title: "ABBA!!!",
-        description: "The whole gang",
-        img: File.new("#{Rails.root}/app/assets/images/abba.jpg") },
-      { title: "Portland Timbers",
-        description: "The Portland Timbers",
-        img: File.new("#{Rails.root}/app/assets/images/timbers.jpg") },
-      { title: "Missing",
-        description: "crowd",
-        img: File.new("#{Rails.root}/app/assets/images/crowd.jpg") }
-    ])
-  end
+  # def generate_images
+  #   @images = Image.create([
+  #     { title: "Blazers vs. Nuggets",
+  #       description: "Lillard vs Nuggets",
+  #       img: File.new("#{Rails.root}/app/assets/images/blazers-nuggets.jpg") },
+  #     { title: "Hannibal Burress",
+  #       description: "Hannibal Burress Headshot",
+  #       img: File.new("#{Rails.root}/app/assets/images/hannibal-buress.jpg") },
+  #     { title: "Pitbull and Enrique Iglesias",
+  #       description: "Pitbull and Enrique Being Bosses",
+  #       img: File.new("#{Rails.root}/app/assets/images/pitbull-enrique.jpg") },
+  #     { title: "ABBA!!!",
+  #       description: "The whole gang",
+  #       img: File.new("#{Rails.root}/app/assets/images/abba.jpg") },
+  #     { title: "Portland Timbers",
+  #       description: "The Portland Timbers",
+  #       img: File.new("#{Rails.root}/app/assets/images/timbers.jpg") },
+  #     { title: "Missing",
+  #       description: "crowd",
+  #       img: File.new("#{Rails.root}/app/assets/images/crowd.jpg") }
+  #   ])
+  # end
 
   def generate_venues
     @venues = Venue.create([
