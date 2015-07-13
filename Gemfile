@@ -13,9 +13,9 @@ gem 'bootstrap_form', '~> 2.2.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'capybara'
+gem 'selenium-webdriver'
 gem 'newrelic_rpm'
-
-
+gem "poltergeist"
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
