@@ -102,7 +102,7 @@ class Seed
       date:         10.days.from_now,
       start_time:   "2000-01-01 16:00:00",
       approved:     true)
-    @event1.image      = @images[0]
+    # @event1.image      = @images[0]
     @event1.venue      = @venues[0]
     @event1.category   = @categories[0]
 
@@ -112,7 +112,7 @@ class Seed
       date:         12.days.from_now,
       start_time:   "2000-01-01 21:00:00",
       approved:     true)
-    @event2.image      = @images[1]
+    # @event2.image      = @images[1]
     @event2.venue      = @venues[1]
     @event2.category = @categories[2]
 
@@ -122,7 +122,7 @@ class Seed
       date:         22.days.from_now,
       start_time:   "2000-01-01 22:30:00",
       approved:     true)
-    @event3.image      = @images[2]
+    # @event3.image      = @images[2]
     @event3.venue      = @venues[0]
     @event3.category = @categories[1]
 
@@ -132,7 +132,7 @@ class Seed
       date:         22.days.ago,
       start_time:   "2000-01-01 20:00:00",
       approved:     true)
-    @event4.image      = @images[2]
+    # @event4.image      = @images[2]
     @event4.venue      = @venues[0]
     @event4.category = @categories[1]
 
@@ -142,7 +142,7 @@ class Seed
       date:         22.days.from_now,
       start_time:   "2000-01-01 22:00:00",
       approved:     false)
-    @event5.image      = @images[2]
+    # @event5.image      = @images[2]
     @event5.venue      = @venues[0]
     @event5.category = @categories[1]
 
@@ -152,7 +152,7 @@ class Seed
       date:         22.days.from_now,
       start_time:   "2000-01-01 23:00:00",
       approved:     true)
-    @event6.image      = @images[2]
+    # @event6.image      = @images[2]
     @event6.venue      = @venues[0]
     @event6.category = @categories[1]
 
@@ -162,7 +162,7 @@ class Seed
       date:         22.days.from_now,
       start_time:   "2000-01-01 22:00:00",
       approved:     true)
-    @event7.image      = @images[2]
+    # @event7.image      = @images[2]
     @event7.venue      = @venues[0]
     @event7.category = @categories[1]
 
@@ -172,7 +172,7 @@ class Seed
       date:         22.days.from_now,
       start_time:   "2000-01-01 22:30:00",
       approved:     true)
-    @event8.image      = @images[2]
+    # @event8.image      = @images[2]
     @event8.venue      = @venues[0]
     @event8.category = @categories[1]
 
@@ -182,7 +182,7 @@ class Seed
       date:         40.days.from_now.change({ hour: 1, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:30:00",
       approved:     true)
-    @event9.image      = @images[3]
+    # @event9.image      = @images[3]
     @event9.venue      = @venues[2]
     @event9.category = @categories[1]
 
@@ -192,7 +192,7 @@ class Seed
       date:         83.days.from_now.change({ hour: 3, min: 0, sec: 0  }),
       start_time:   "2000-01-01 14:15:00",
       approved:     true)
-    @event10.image      = @images[4]
+    # @event10.image      = @images[4]
     @event10.venue      = @venues[3]
     @event10.category = @categories[0]
 
@@ -202,7 +202,7 @@ class Seed
       date:         16.days.from_now.change({ hour: 1, min: 0, sec: 0  }),
       start_time:   "2000-01-01 16:00:00",
       approved:     true)
-    @event11.image      = @images[-1]
+    # @event11.image      = @images[-1]
     @event11.venue      = @venues[0]
     @event11.category   = @categories[0]
 
@@ -212,7 +212,7 @@ class Seed
       date:         29.days.from_now.change({ hour: 2, min: 0, sec: 0  }),
       start_time:   "2000-01-01 13:00:00",
       approved:     true)
-    @event12.image      = @images[-1]
+    # @event12.image      = @images[-1]
     @event12.venue      = @venues[1]
     @event12.category   = @categories[1]
 
@@ -222,7 +222,7 @@ class Seed
       date:         78.days.from_now.change({ hour: 3, min: 0, sec: 0  }),
       start_time:   "2000-01-01 18:05:00",
       approved:     true)
-    @event13.image      = @images[-1]
+    # @event13.image      = @images[-1]
     @event13.venue      = @venues[2]
     @event13.category   = @categories[0]
 
@@ -232,7 +232,7 @@ class Seed
       date:         90.days.from_now.change({ hour: 2, min: 0, sec: 0  }),
       start_time:   "2000-01-01 11:35:00",
       approved:     true)
-    @event14.image      = @images[-1]
+    # @event14.image      = @images[-1]
     @event14.venue      = @venues[4]
     @event14.category   = @categories[0]
 
@@ -242,7 +242,7 @@ class Seed
       date:         45.days.from_now.change({ hour: 3, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event15.image      = @images[-1]
+    # @event15.image      = @images[-1]
     @event15.venue      = @venues[4]
     @event15.category   = @categories[1]
 
@@ -252,7 +252,7 @@ class Seed
       date:         16.days.from_now.change({ hour: 1, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event16.image      = @images[-1]
+    # @event16.image      = @images[-1]
     @event16.venue      = @venues[4]
     @event16.category   = @categories[0]
 
@@ -262,7 +262,7 @@ class Seed
       date:         100.days.from_now.change({ hour: 2, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event17.image      = @images[-1]
+    # @event17.image      = @images[-1]
     @event17.venue      = @venues[5]
     @event17.category   = @categories[0]
 
@@ -272,7 +272,7 @@ class Seed
       date:         89.days.from_now.change({ hour: 1, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event18.image      = @images[-1]
+    # @event18.image      = @images[-1]
     @event18.venue      = @venues[5]
     @event18.category   = @categories[0]
 
@@ -282,7 +282,7 @@ class Seed
       date:         45.days.from_now.change({ hour: 1, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event18.image      = @images[-1]
+    # @event18.image      = @images[-1]
     @event18.venue      = @venues[2]
     @event18.category   = @categories[2]
 
@@ -292,7 +292,7 @@ class Seed
       date:         25.days.from_now.change({ hour: 5, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event19.image      = @images[-1]
+    # @event19.image      = @images[-1]
     @event19.venue      = @venues[1]
     @event19.category   = @categories[0]
 
@@ -302,7 +302,7 @@ class Seed
       date:         33.days.from_now.change({ hour: 5, min: 0, sec: 0  }),
       start_time:   "2000-01-01 19:00:00",
       approved:     true)
-    @event20.image      = @images[-1]
+    # @event20.image      = @images[-1]
     @event20.venue      = @venues[5]
     @event20.category   = @categories[2]
 
