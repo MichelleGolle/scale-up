@@ -5,7 +5,7 @@ class Seed
     p "Seeding started"
     p "=============================="
     generate_categories
-    generate_images
+    # generate_images
     generate_venues
     generate_events
     generate_users

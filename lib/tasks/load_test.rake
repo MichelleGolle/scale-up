@@ -9,22 +9,23 @@ end
 def browse
   session = Capybara::Session.new(:poltergeist, timeout: 60)
   loop do
-    session.visit("http://scale-up.herokuapp.com")
-
+    session.visit("https://hubstub-scale-up.herokuapp.com/")
     #User login
-    session.click_link("Login")
-    session.fill_in "session[email]", with: "sample@sample.com"
+    # session.click_link("Login")
+
+    #User list a ticket
+
+    session.click_link("My Hubstub")
+    session.click_link("List a Ticket")
+    session.fill_in "session[email]", with: "demo+rachel@example.com"
     session.fill_in "session[password]", with: "password"
     session.click_link_or_button("Log in")
     puts "Login"
-    #User list a ticket
-    session.click_link("My Hubstub")
-    session.click_link("List a Ticket")
-    session.select  "TLC", from: "item[event_id]"
-    session.fill_in "item[section]", with: "FA"
-    session.fill_in "item[row]", with: "555"
-    session.fill_in "item[seat]", with: "60"
-    session.fill_in "item[unit_price]", with: 30
+    session.select  "Les Miserables", from: "item[event_id]"
+    session.fill_in "item[section]", with: "1"
+    session.fill_in "item[row]", with: "1"
+    session.fill_in "item[seat]", with: "1"
+    session.fill_in "item[unit_price]", with: 100
     session.select  "Electronic", from: "item[delivery_method]"
     session.click_button("List Ticket")
     puts "New ticket created"
@@ -40,14 +41,26 @@ def browse
     puts "Admin Login"
     #Admin edit event
     session.click_link "Users"
+    # session.all("tr").sample.click_link "Store"
+    # session.click_link("Events")
+    # session.click_link("Manage Events")
+
+    # session.all("tr").sample.click_link "Store"
+    # session.visit "admin/events"
+    # session.all("tr").sample.click_link "Edit"
+    # session.fill_in "event[title]", with: "Ice-capades"
+    # session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
+    # session.click_button "Submit"
+    # puts "Event edited"
     session.all("tr").sample.click_link "Store"
-    session.click_link("Events")
-    session.click_link("Manage Events")
+    session.visit "admin/events"
     session.all("tr").sample.click_link "Edit"
     session.fill_in "event[title]", with: "Ice-capades"
     session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
+    session.fill_in "event[start-time]", with: "2000-01-01 19:00:00"
     session.click_button "Submit"
-    puts "Event edited"
+    click_link "3"
+    session.all("tr").sample.click_link "Delete"
     #Admin logout
     session.click_link("Logout")
     puts "Admin logout"
