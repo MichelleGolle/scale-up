@@ -2,9 +2,9 @@ class AdminController < ApplicationController
   before_action :authorize
   def index
     if params[:status].nil? || params[:status] == "all"
-      @orders = Order.sorted
+      @orders = Order.sorted.paginate(page: params[:page])
     else
-      @orders = Order.sorted.where("status = ?", params[:status])
+      @orders = Order.sorted.where("status = ?", params[:status]).paginate(page: params[:page])
     end
   end
 

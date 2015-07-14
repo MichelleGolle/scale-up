@@ -7,15 +7,17 @@ task :load_test => :environment do
 end
 
 def browse
-  session = Capybara::Session.new(:poltergeist)
+  session = Capybara::Session.new(:poltergeist, timeout: 60)
   loop do
     session.visit("http://scale-up.herokuapp.com")
-    #user logs in and lists a ticket
+
+    #User login
     session.click_link("Login")
     session.fill_in "session[email]", with: "sample@sample.com"
     session.fill_in "session[password]", with: "password"
     session.click_link_or_button("Log in")
     puts "Login"
+    #User list a ticket
     session.click_link("My Hubstub")
     session.click_link("List a Ticket")
     session.select  "TLC", from: "item[event_id]"
@@ -26,10 +28,31 @@ def browse
     session.select  "Electronic", from: "item[delivery_method]"
     session.click_button("List Ticket")
     puts "New ticket created"
+    #User logout
     session.click_link("Logout")
     puts "Logout"
 
-    #guest adds something to cart and signs up
+    #Admin Login
+    session.click_link("Login")
+    session.fill_in "session[email]", with: "admin@admin.com"
+    session.fill_in "session[password]", with: "password"
+    session.click_link_or_button("Log in")
+    puts "Admin Login"
+    #Admin edit event
+    session.click_link "Users"
+    session.all("tr").sample.click_link "Store"
+    session.click_link("Events")
+    session.click_link("Manage Events")
+    session.all("tr").sample.click_link "Edit"
+    session.fill_in "event[title]", with: "Ice-capades"
+    session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
+    session.click_button "Submit"
+    puts "Event edited"
+    #Admin logout
+    session.click_link("Logout")
+    puts "Admin logout"
+
+    #Unregisted user browses
     session.click_link("Buy")
     session.click_link("All Tickets")
     puts "all tickets clicked"
@@ -40,9 +63,11 @@ def browse
     session.click_link("Theater")
     session.click_link("All")
     puts "sports searched"
+    #Unregisted user adds item to cart
     session.all("p.event-name a").sample.click
     session.all("tr").sample.find(:css, "input.btn").click
     puts "one thing added to cart"
+    #User registers and checks out
     session.click_link("Cart(1)")
     session.click_link("Checkout")
     session.click_link("here")
@@ -57,24 +82,6 @@ def browse
     session.fill_in "user[password_confirmation]", with: "password"
     session.click_button("Create my account!")
     puts session.current_path
-    puts "create account"
-
-    session.click_link("Login")
-    session.fill_in "session[email]", with: "admin@admin.com"
-    session.fill_in "session[password]", with: "password"
-    session.click_link_or_button("Log in")
-    puts "Admin Login"
-    click_link "Users"
-    session.all("tr").sample.click_link "Store"
-    session.visit "admin/events"
-    session.all("tr").sample.click_link "Edit"
-    session.fill_in "event[title]", with: "Ice-capades"
-    session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
-    session.fill_in "event[start-time]", with: "2000-01-01 19:00:00"
-    session.click_button "Submit"
-    click_link "3"
-    session.all("tr").sample.click_link "Delete"
-    session.click_link("Logout")
-    puts "Admin Done"
+    puts "created user account"
   end
 end

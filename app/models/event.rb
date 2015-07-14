@@ -1,3 +1,4 @@
+
 class Event < ActiveRecord::Base
   validates :title, presence: true, allow_blank: false,
                     uniqueness: { case_sensitive: false }
@@ -46,10 +47,13 @@ class Event < ActiveRecord::Base
   end
 
   def event_banner
-    image.img.url(:event_banner)
+    image.img(:event_banner)
   end
 
   def venue_location
     venue.location
   end
+
+  # Sets how many jobs are displayed per paginated page
+  self.per_page = 2
 end
