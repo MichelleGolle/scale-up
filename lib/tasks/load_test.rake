@@ -8,13 +8,10 @@ end
 
 def browse
   session = Capybara::Session.new(:poltergeist, timeout: 60)
-  loop do
+  # loop do
     session.visit("https://hubstub-scale-up.herokuapp.com/")
-    #User login
-    # session.click_link("Login")
 
     #User list a ticket
-
     session.click_link("My Hubstub")
     session.click_link("List a Ticket")
     session.fill_in "session[email]", with: "demo+rachel@example.com"
@@ -39,33 +36,28 @@ def browse
     session.fill_in "session[password]", with: "password"
     session.click_link_or_button("Log in")
     puts "Admin Login"
-    #Admin edit event
-    session.click_link "Users"
-    # session.all("tr").sample.click_link "Store"
-    # session.click_link("Events")
-    # session.click_link("Manage Events")
 
-    # session.all("tr").sample.click_link "Store"
-    # session.visit "admin/events"
-    # session.all("tr").sample.click_link "Edit"
-    # session.fill_in "event[title]", with: "Ice-capades"
-    # session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
-    # session.click_button "Submit"
-    # puts "Event edited"
+
+
+    #Admin Edit Event
+    session.click_link "Users"
     session.all("tr").sample.click_link "Store"
-    session.visit "admin/events"
+    puts "visited admin users index"
+    session.click_link "Events"
+    session.click_link "Manage Events"
+    puts session.current_path
     session.all("tr").sample.click_link "Edit"
-    session.fill_in "event[title]", with: "Ice-capades"
+    session.fill_in "event[title]", with: ("A".."Z").to_a.shuffle.first(5).join
     session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
-    session.fill_in "event[start-time]", with: "2000-01-01 19:00:00"
+    session.fill_in "event[start_time]", with: "2000-01-01 19:00:00"
     session.click_button "Submit"
-    click_link "3"
-    session.all("tr").sample.click_link "Delete"
-    #Admin logout
+    puts "event edited by admin"
+
+    # Admin logout
     session.click_link("Logout")
     puts "Admin logout"
 
-    #Unregisted user browses
+    # Unregisted user browses
     session.click_link("Buy")
     session.click_link("All Tickets")
     puts "all tickets clicked"
@@ -96,5 +88,5 @@ def browse
     session.click_button("Create my account!")
     puts session.current_path
     puts "created user account"
-  end
+  # end
 end
