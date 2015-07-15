@@ -11,7 +11,7 @@ task :populate => :environment do
     event.date = 22.days.from_now
     event.start_time = "2000-01-01 22:30:00"
     event.approved = true
-    event.image_id = @images.sample.id
+    # event.image_id = @images.sample.id
     event.venue_id = @venues.sample.id
     event.category_id = @categories.sample.id
   end

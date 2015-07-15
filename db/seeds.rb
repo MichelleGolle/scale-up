@@ -416,7 +416,6 @@ class Seed
         delivery_method: "electronic",
         event_id: event.id,
         user_id: user.id,
-        # ticket: File.new("#{Rails.root}/app/assets/images/fake_ticket.pdf"
         )
         puts "Item #{i}: #{item.id} created!"
     end
