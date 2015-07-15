@@ -8,7 +8,7 @@ end
 
 def browse
   session = Capybara::Session.new(:poltergeist, timeout: 60)
-  # loop do
+  loop do
     session.visit("https://hubstub-scale-up.herokuapp.com/")
 
     #User list a ticket
@@ -88,5 +88,5 @@ def browse
     session.click_button("Create my account!")
     puts session.current_path
     puts "created user account"
-  # end
+  end
 end

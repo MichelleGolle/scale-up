@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709135040) do
+ActiveRecord::Schema.define(version: 20150715025148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,30 +51,24 @@ ActiveRecord::Schema.define(version: 20150709135040) do
   create_table "images", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "img_file_name"
-    t.string   "img_content_type"
-    t.integer  "img_file_size"
-    t.datetime "img_updated_at"
+    t.datetime "created_at",                                                                                                 null: false
+    t.datetime "updated_at",                                                                                                 null: false
+    t.string   "photo",       default: "http://i.livescience.com/images/i/000/048/146/original/concert-crowd-100817-02.jpg"
   end
 
   create_table "items", force: :cascade do |t|
     t.integer  "unit_price"
-    t.boolean  "pending",             default: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.boolean  "sold",                default: false
+    t.boolean  "pending",         default: false
+    t.datetime "created_at",                                                                                null: false
+    t.datetime "updated_at",                                                                                null: false
+    t.boolean  "sold",            default: false
     t.string   "section"
     t.string   "row"
     t.string   "seat"
     t.string   "delivery_method"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.string   "ticket_file_name"
-    t.string   "ticket_content_type"
-    t.integer  "ticket_file_size"
-    t.datetime "ticket_updated_at"
+    t.string   "ticket",          default: "http://www.urartuuniversity.com/content_images/pdf-sample.pdf"
   end
 
   add_index "items", ["event_id"], name: "index_items_on_event_id", using: :btree
