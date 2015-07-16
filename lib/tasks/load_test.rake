@@ -2,11 +2,11 @@ require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 desc "Load test"
 task :load_test => :environment do
-  4.times.map { Thread.new { load_activity } }.map(&:join)
+  6.times.map { Thread.new { load_activity } }.map(&:join)
 end
 
 def load_activity
-  session = Capybara::Session.new(:poltergeist)
+  session = Capybara::Session.new(:poltergeist, timeout: 600)
   loop do
     session.visit("https://hubstub-scale-up.herokuapp.com/")
     session.click_link("Adventure")
