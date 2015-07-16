@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'google_timezone'
 gem 'geokit'
 
+gem "bullet", group: :development
 
 group :development, :test do
   gem 'byebug', '~> 3.5.0'

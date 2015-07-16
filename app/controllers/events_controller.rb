@@ -15,16 +15,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @items = @event.items.active.not_in_cart(session[:cart]).paginate(page: params[:page])
+    @items = @event.items.includes(:user).active.not_in_cart(session[:cart]).paginate(page: params[:page])
   end
 
   def random
-    if Event.count > 0
-      offset = rand(Event.active.count)
-      event = Event.active.offset(offset).first
-      redirect_to event
-    else
-      redirect_to root_path
-    end
+    event = Event.find(rand(1..Event.count))
+    redirect_to event
   end
 end
