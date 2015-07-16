@@ -14,7 +14,7 @@
     </table>
   <% else %>
     <table class="table table-hover event-tickets">
->>>>>>>>>>      <% @user_events.each do |event, items| %>
+      <% @user_events.each do |event, items| %>
       <thead>
         <tr id="seller-events">
           <th colspan=8 class="vert-align">
@@ -34,11 +34,11 @@
         </tr>
       </thead>
       <tbody>
->>>>>>>>>>          <% items.each do |item| %>
+         <% items.each do |item| %>
             <tr>
               <td class="vert-align" id="seller-category">
                 <p>
-  >>>>>>>>>>>                <%= link_to(event.category.name, tickets_path(category: event.category.name)) %>
+              <%= link_to(event.category.name, tickets_path(category: event.category.name)) %>
                 </p>
               </td>
               <td class="vert-align"><%= item.section %></td>

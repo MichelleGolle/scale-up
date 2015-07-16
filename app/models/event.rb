@@ -55,5 +55,5 @@ class Event < ActiveRecord::Base
   end
 
   # Sets how many jobs are displayed per paginated page
-  self.per_page = 2
+  self.per_page = 10
 end
